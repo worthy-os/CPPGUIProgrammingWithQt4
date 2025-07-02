@@ -1,7 +1,7 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include <QApplication>
+#include <QtWidgets/QApplication>
 #include <QColor>
 #include <QGraphicsItem>
 #include <QSet>

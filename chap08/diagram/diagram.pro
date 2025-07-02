@@ -1,4 +1,5 @@
 TEMPLATE      = app
+QT           += qml widgets  gui xml # QT += script grostig
 HEADERS       = diagramwindow.h \
                 link.h \
                 node.h \

@@ -1,7 +1,7 @@
 #ifndef CELL_H
 #define CELL_H
 
-#include <QTableWidgetItem>
+#include "QtWidgets/qtablewidget.h"
 
 class Cell : public QTableWidgetItem
 {

@@ -1,3 +1,4 @@
 TEMPLATE      = app
 SOURCES       = main.cpp
+QT           += qml widgets  gui xml # QT += script grostig
 FORMS         = gotocelldialog.ui

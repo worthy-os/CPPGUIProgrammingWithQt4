@@ -1,4 +1,4 @@
-#include <QApplication>
+#include <QtWidgets/QApplication>
 #include <QHBoxLayout>
 
 #include "hexspinbox.h"

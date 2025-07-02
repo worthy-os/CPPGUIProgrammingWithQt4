@@ -1,5 +1,6 @@
-#include <QApplication>
-#include <QLabel>
+#include "QtWidgets/qlabel.h"  // grostig
+//#include <QLabel>
+#include <QtWidgets/QApplication>
 
 int main(int argc, char *argv[])
 {

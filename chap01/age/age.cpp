@@ -1,7 +1,10 @@
-#include <QApplication>
-#include <QHBoxLayout>
-#include <QSlider>
-#include <QSpinBox>
+#include <QtWidgets/qdialog.h>      // grostig
+#include <QtWidgets/qboxlayout.h>   // grostig
+#include <QtWidgets/qpushbutton.h>  // grostig
+#include <QtWidgets/qslider.h>      // grostig
+#include <QtWidgets/qspinbox.h>     // grostig
+#include <QtWidgets/qtablewidget.h> // grostig
+#include <QtWidgets/QApplication>
 
 int main(int argc, char *argv[])
 {

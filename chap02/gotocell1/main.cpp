@@ -1,5 +1,5 @@
-#include <QApplication>
-#include <QDialog>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/qdialog.h>      // grostig
 
 #include "ui_gotocelldialog.h"
 

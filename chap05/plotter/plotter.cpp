@@ -2,6 +2,9 @@
 #include <cmath>
 
 #include "plotter.h"
+#include "qstyleoption.h"
+#include "qstylepainter.h"
+#include "qtoolbutton.h"
 
 Plotter::Plotter(QWidget *parent)
     : QWidget(parent)

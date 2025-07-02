@@ -1,23 +1,15 @@
-#ifndef SORTDIALOG_H
-#define SORTDIALOG_H
-
 #include <QtWidgets/qdialog.h>      // grostig
 #include <QtWidgets/qboxlayout.h>   // grostig
 #include <QtWidgets/qpushbutton.h>  // grostig
 #include <QtWidgets/qslider.h>      // grostig
 #include <QtWidgets/qspinbox.h>     // grostig
 #include <QtWidgets/qtablewidget.h> // grostig
+#include "QtWidgets/qwidget.h"      // grostig
+
+#include <QDialog>
 #include <QtWidgets/QApplication>
-#include "ui_sortdialog.h"
+#include <QtWidgets>                // grostig
 
-class SortDialog : public QDialog, public Ui::SortDialog
-{
-    Q_OBJECT
+QMainWindow
 
-public:
-    SortDialog(QWidget *parent = 0);
-
-    void setColumnRange(QChar first, QChar last);
-};
-
-#endif
+QT           += qml widgets  gui xml # QT += script grostig

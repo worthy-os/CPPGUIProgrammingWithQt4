@@ -1,7 +1,12 @@
 #ifndef FINDFILEDIALOG_H
 #define FINDFILEDIALOG_H
 
-#include <QDialog>
+#include <QtWidgets/qdialog.h>      // grostig
+#include <QtWidgets/qboxlayout.h>   // grostig
+#include <QtWidgets/qpushbutton.h>  // grostig
+#include <QtWidgets/qslider.h>      // grostig
+#include <QtWidgets/qspinbox.h>     // grostig
+#include <QtWidgets/qtablewidget.h> // grostig
 
 class QCheckBox;
 class QLabel;

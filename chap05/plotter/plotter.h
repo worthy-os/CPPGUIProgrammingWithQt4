@@ -1,10 +1,17 @@
 #ifndef PLOTTER_H
 #define PLOTTER_H
 
+#include <QtWidgets/qdialog.h>      // grostig
+#include <QtWidgets/qboxlayout.h>   // grostig
+#include <QtWidgets/qpushbutton.h>  // grostig
+#include <QtWidgets/qslider.h>      // grostig
+#include <QtWidgets/qspinbox.h>     // grostig
+#include <QtWidgets/qtablewidget.h> // grostig
+#include "QtWidgets/qwidget.h"      // grostig
+#include <QtWidgets>                // grostig
 #include <QMap>
 #include <QPixmap>
 #include <QVector>
-#include <QWidget>
 
 class QToolButton;
 class PlotSettings;

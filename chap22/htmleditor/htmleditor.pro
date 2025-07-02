@@ -1,5 +1,5 @@
 TEMPLATE      = app
-QT           += script
+QT           += qml widgets  gui xml
 CONFIG       += uitools
 HEADERS       = htmlsyntaxhighlighter.h \
                 htmlwindow.h

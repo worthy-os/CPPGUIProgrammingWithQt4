@@ -1,7 +1,7 @@
 #ifndef CALCULATOR_H
 #define CALCULATOR_H
 
-#include <QDialog>
+#include <QtWidgets/qdialog.h> // grostig
 #include <QList>
 
 class QDir;

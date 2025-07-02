@@ -1,4 +1,5 @@
 TEMPLATE      = app
+QT           += qml gui xml # QT += script grostig
 HEADERS       = cell.h \
                 finddialog.h \
                 gotocelldialog.h \

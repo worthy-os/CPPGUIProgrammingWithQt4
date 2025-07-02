@@ -1,6 +1,7 @@
 #include <QtGui>
 
 #include "plotter.h"
+#include <QtWidgets/QApplication>  // grostig
 
 void readFlightCurves(Plotter *plotter, const QString &fileName)
 {
@@ -17,7 +18,7 @@ void readFlightCurves(Plotter *plotter, const QString &fileName)
         while (!in.atEnd()) {
             QString line = in.readLine();
             QStringList coords = line.split(' ',
-                                            QString::SkipEmptyParts);
+                                            Qt::SkipEmptyParts); // grostig
             if (coords.count() >= 6) {
                 double x = factX * coords[0].toDouble();
                 if (data[0].isEmpty())
@@ -51,8 +52,8 @@ int main(int argc, char *argv[])
     QVector<QPointF> points0;
     QVector<QPointF> points1;
     for (int x = 0; x < numPoints; ++x) {
-        points0.append(QPointF(x, uint(qrand()) % 100));
-        points1.append(QPointF(x, uint(qrand()) % 100));
+        points0.append(QPointF(x, uint(rand()) % 100)); // grostig
+        points1.append(QPointF(x, uint(rand()) % 100)); // grostig
     }
     plotter.setCurveData(0, points0);
     plotter.setCurveData(1, points1);

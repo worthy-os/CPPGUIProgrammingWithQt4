@@ -1,5 +1,6 @@
 #include <QtGui>
-#include <QtScript>
+#include <QtWidgets/QtWidgets>  // grostig
+#include <QJSEngine>            // #include <QtScript>  grostig
 #include <cmath>
 
 #include "calculator.h"
