@@ -1,6 +1,10 @@
-#include <QtGui>
 #include <cmath>
-
+#include <QtCore>
+#include <QDialog>
+#include <QtGui>
+#include <QtNetwork>
+#include <QtQml>
+#include <QtWidgets>
 #include "annotation.h"
 
 Annotation::Annotation(const QString &text, bool major)
@@ -47,24 +51,31 @@ QRectF Annotation::boundingRect() const
     return rect;
 }
 
-void Annotation::paint(QPainter *painter,
-                       const QStyleOptionGraphicsItem *option,
-                       QWidget * /* widget */)
-{
-    if (option->levelOfDetail <= threshold)
-        return;
-
+void Annotation::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget * /* widget */) { // reorg and delta code. grostig
     painter->setFont(font);
-
     QRectF rect = boundingRect();
 
+    // for some reason AI thinks we don't need option variable??
+
+    // grostig change from commented block below
+    qreal levelOfDetail{painter->transform().m11()};
+    //threshold = ADJUSTED_VALUE for m11();  // todo??: needed, AI suggests it is.
+    if (levelOfDetail <= threshold){
+       // low detail level of rendering?   // todo??: needed, AI suggests it is.
+    }
+    else {
+       int alpha = int(30 * std::log(levelOfDetail));
+       if (alpha >= 32) painter->fillRect(rect, QColor(255, 255, 255, qMin(alpha, 63)));
+    }
+
+    /* if (option->levelOfDetail <= threshold)
+        return;
     int alpha = int(30 * std::log(option->levelOfDetail));
     if (alpha >= 32)
-        painter->fillRect(rect, QColor(255, 255, 255, qMin(alpha, 63)));
+        painter->fillRect(rect, QColor(255, 255, 255, qMin(alpha, 63))); */
 
     painter->setPen(Qt::white);
-    painter->drawText(rect.translated(+1, +1), str,
-                      QTextOption(Qt::AlignCenter));
+    painter->drawText(rect.translated(+1, +1), str, QTextOption(Qt::AlignCenter));
     painter->setPen(Qt::blue);
     painter->drawText(rect, str, QTextOption(Qt::AlignCenter));
 }

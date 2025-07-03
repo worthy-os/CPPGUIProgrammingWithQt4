@@ -1,5 +1,4 @@
 TEMPLATE      = app
-QT           += qml widgets  gui xml xml
 HEADERS       = filterdialog.h \
                 pumpspreadsheet.h \
                 pumpwindow.h \
@@ -10,3 +9,5 @@ SOURCES       = filterdialog.cpp \
                 pumpwindow.cpp \
                 scripting.cpp
 FORMS         = filterdialog.ui
+QT           += qml widgets  gui xml xml
+CONFIG       += uitools

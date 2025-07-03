@@ -6,3 +6,5 @@ SOURCES       = ../bronze/bronzestyle.cpp \
                 bronzestyleplugin.cpp
 RESOURCES     = ../bronze/bronze.qrc
 DESTDIR       = $$[QT_INSTALL_PLUGINS]/styles
+QT           += qml widgets  gui xml xml
+CONFIG       += uitools

@@ -1,5 +1,10 @@
 #include <QtCore>
-
+#include <QtCore>
+#include <QDialog>
+#include <QtGui>
+#include <QtNetwork>
+#include <QtQml>
+#include <QtWidgets>
 #include "citymodel.h"
 
 CityModel::CityModel(QObject *parent)

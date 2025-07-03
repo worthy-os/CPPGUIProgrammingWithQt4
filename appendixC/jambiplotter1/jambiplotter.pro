@@ -16,3 +16,5 @@ win32 {
 LIBS         += -L$$(JAMBIPATH)/lib -lqtjambi
 
 include(../cpp/com_softwareinc_plotter/com_softwareinc_plotter.pri)
+QT           += qml widgets  gui xml xml
+CONFIG       += uitools

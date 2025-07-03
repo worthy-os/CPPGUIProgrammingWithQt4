@@ -1,5 +1,6 @@
 #include <QtGui>
 #include <QtWidgets>
+#include <QDialog>  // grostig
 
 #include "editor.h"
 

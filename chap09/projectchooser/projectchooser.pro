@@ -6,3 +6,5 @@ SOURCES       = main.cpp \
                 projectlistwidget.cpp
 FORMS         = projectdialog.ui
 RESOURCES     = projectchooser.qrc
+QT           += qml widgets  gui xml xml
+CONFIG       += uitools

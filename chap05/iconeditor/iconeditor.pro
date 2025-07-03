@@ -4,3 +4,5 @@ HEADERS       = iconeditor.h
 SOURCES       = iconeditor.cpp \
                 main.cpp
 RESOURCES     = iconeditor.qrc
+QT           += qml widgets  gui xml xml
+CONFIG       += uitools

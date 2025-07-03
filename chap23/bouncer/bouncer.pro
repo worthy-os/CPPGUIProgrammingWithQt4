@@ -7,3 +7,5 @@ SOURCES       = axbouncer.cpp \
                 objectsafetyimpl.cpp
 RC_FILE       = qaxserver.rc
 DEF_FILE      = qaxserver.def
+QT           += qml widgets  gui xml xml
+CONFIG       += uitools

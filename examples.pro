@@ -10,8 +10,8 @@ SUBDIRS       = chap01/age \
               # chap03/spreadsheet \
               # chap04/spreadsheet \
                 chap05/hexspinbox \
-                chap05/iconeditor \
-                chap05/iconeditorplugin \
+              # chap05/iconeditor \
+              # chap05/iconeditorplugin \
                 chap05/plotter \
                 chap06/findfile1 \
                 chap06/findfile2 \
@@ -69,3 +69,5 @@ SUBDIRS       = chap01/age \
                 chap22/calculator \
                 chap22/gaspump \
                 chap22/htmleditor
+QT           += qml widgets  gui xml xml
+CONFIG       += uitools

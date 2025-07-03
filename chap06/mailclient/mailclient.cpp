@@ -1,4 +1,8 @@
+#include <QtCore>
+#include <QDialog>
 #include <QtGui>
+#include <QtNetwork>
+#include <QtQml>
 #include <QtWidgets>
 
 #include "mailclient.h"
@@ -104,7 +108,7 @@ void MailClient::addFolder(const QIcon &icon, const QString &name)
     if (foldersTreeWidget->topLevelItemCount() == 0) {
         root = new QTreeWidgetItem(foldersTreeWidget);
         root->setText(0, tr("Mail"));
-        foldersTreeWidget->setItemExpanded(root, true);
+        foldersTreeWidget->expandAll();  // NO? foldersTreeWidget->setExpanded(true); // grostig foldersTreeWidget->setItemExpanded(root, true);
     } else {
         root = foldersTreeWidget->topLevelItem(0);
     }

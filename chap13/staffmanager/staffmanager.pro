@@ -5,3 +5,5 @@ HEADERS       = employeeform.h \
 SOURCES       = employeeform.cpp \
                 main.cpp \
                 mainform.cpp
+QT           += qml widgets  gui xml xml
+CONFIG       += uitools

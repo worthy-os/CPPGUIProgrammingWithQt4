@@ -9,3 +9,5 @@ SOURCES       = abitem.cpp \
                 main.cpp
 FORMS         = editdialog.ui
 RC_FILE       = qaxserver.rc
+QT           += qml widgets  gui xml xml
+CONFIG       += uitools

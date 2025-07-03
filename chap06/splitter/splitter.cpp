@@ -1,4 +1,9 @@
+#include <QtCore>
+#include <QDialog>
 #include <QtGui>
+#include <QtNetwork>
+#include <QtQml>
+#include <QtWidgets>
 
 int main(int argc, char *argv[])
 {

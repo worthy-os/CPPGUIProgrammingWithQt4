@@ -1,13 +1,14 @@
 #ifndef HEXSPINBOX_H
 #define HEXSPINBOX_H
-
-#include <QtWidgets/qdialog.h>      // grostig
-#include <QtWidgets/qboxlayout.h>   // grostig
-#include <QtWidgets/qpushbutton.h>  // grostig
-#include <QtWidgets/qslider.h>      // grostig
-#include <QtWidgets/qspinbox.h>     // grostig
-#include <QtWidgets/qtablewidget.h> // grostig
-class QRegExpValidator;
+#include <QtCore>
+#include <QDialog>
+#include <QtGui>
+#include <QtNetwork>
+#include <QtQml>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
+#include <QtWidgets>
+//class QRegExpValidator;  // grostig
 
 class HexSpinBox : public QSpinBox
 {
@@ -22,7 +23,7 @@ protected:
     QString textFromValue(int value) const;
 
 private:
-    QRegExpValidator *validator;
+    QRegularExpressionValidator *validator;  // grostig expanded name
 };
 
 #endif

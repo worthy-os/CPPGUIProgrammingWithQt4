@@ -19,3 +19,5 @@ pkg.name      = unitconverter
 pkg.desc      = A program to convert between various units of measurement
 pkg.version   = 1.0.0
 pkg.domain    = window
+QT           += qml widgets  gui xml xml
+CONFIG       += uitools

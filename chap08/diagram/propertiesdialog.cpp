@@ -1,5 +1,9 @@
+#include <QtCore>
+#include <QDialog>
 #include <QtGui>
-
+#include <QtNetwork>
+#include <QtQml>
+#include <QtWidgets>
 #include "node.h"
 #include "propertiesdialog.h"
 

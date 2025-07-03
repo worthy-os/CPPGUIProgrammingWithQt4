@@ -1,5 +1,4 @@
 TEMPLATE      = app
-QT           += qml widgets  gui xml # QT += script grostig
 HEADERS       = diagramwindow.h \
                 link.h \
                 node.h \
@@ -11,3 +10,4 @@ SOURCES       = diagramwindow.cpp \
                 propertiesdialog.cpp
 FORMS         = propertiesdialog.ui
 RESOURCES     = resources.qrc
+QT           += qml widgets  gui xml xml uitools

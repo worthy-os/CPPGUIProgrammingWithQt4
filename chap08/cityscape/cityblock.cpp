@@ -1,6 +1,10 @@
-#include <QtGui>
 #include <cmath>
-
+#include <QtCore>
+#include <QDialog>
+#include <QtGui>
+#include <QtNetwork>
+#include <QtQml>
+#include <QtWidgets>
 #include "cityblock.h"
 
 CityBlock::CityBlock(Kind kind)
@@ -78,16 +82,21 @@ CityBlock::CityBlock(Kind kind)
     }
 }
 
-QRectF CityBlock::boundingRect() const
-{
-    return QRectF(-20, -20, 40, 40);
-}
+QRectF CityBlock::boundingRect() const { return QRectF(-20, -20, 40, 40); }
 
-void CityBlock::paint(QPainter *painter,
-                      const QStyleOptionGraphicsItem *option,
-                      QWidget * /* widget */)
-{
-    if (option->levelOfDetail < 4.0) {
+void CityBlock::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget * /* widget */) {
+    qreal levelOfDetail{painter->transform().m11()};  // grostig
+    // consider fixing level of detail  TODO??:
+    if (levelOfDetail < 4.0) {
+        painter->fillPath(shape, color);
+    } else {
+        QLinearGradient gradient(QPoint(-20, -20), QPoint(+20, +20));
+        int coeff = 105 + int(std::log(levelOfDetail - 4.0));
+        gradient.setColorAt(0.0, color.lighter(coeff));
+        gradient.setColorAt(1.0, color.darker(coeff));
+        painter->fillPath(shape, gradient);
+    }
+    /* if (option->levelOfDetail < 4.0) {  // prior depricated code block, grostig
         painter->fillPath(shape, color);
     } else {
         QLinearGradient gradient(QPoint(-20, -20), QPoint(+20, +20));
@@ -95,5 +104,5 @@ void CityBlock::paint(QPainter *painter,
         gradient.setColorAt(0.0, color.lighter(coeff));
         gradient.setColorAt(1.0, color.darker(coeff));
         painter->fillPath(shape, gradient);
-    }
+    } */
 }

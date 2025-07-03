@@ -1,5 +1,9 @@
+#include <QtCore>
+#include <QDialog>
 #include <QtGui>
-
+#include <QtNetwork>
+#include <QtQml>
+#include <QtWidgets>
 #include "link.h"
 #include "node.h"
 
@@ -84,7 +88,7 @@ QPainterPath Node::shape() const
     QRectF rect = outlineRect();
 
     QPainterPath path;
-    path.addRoundRect(rect, roundness(rect.width()),
+    path.addRoundedRect(rect, roundness(rect.width()), //path.addRoundRect(rect, roundness(rect.width()),            // grostig
                       roundness(rect.height()));
     return path;
 }
@@ -102,7 +106,7 @@ void Node::paint(QPainter *painter,
     painter->setBrush(myBackgroundColor);
 
     QRectF rect = outlineRect();
-    painter->drawRoundRect(rect, roundness(rect.width()),
+    painter->drawRoundedRect(rect, roundness(rect.width()),
                            roundness(rect.height()));
 
     painter->setPen(myTextColor);
@@ -131,7 +135,7 @@ QVariant Node::itemChange(GraphicsItemChange change,
 QRectF Node::outlineRect() const
 {
     const int Padding = 8;
-    QFontMetricsF metrics = qApp->font();
+    QFontMetricsF metrics{qApp->font()};  //  QFontMetricsF metrics = qApp->font(); grostig
     QRectF rect = metrics.boundingRect(myText);
     rect.adjust(-Padding, -Padding, +Padding, +Padding);
     rect.translate(-rect.center());

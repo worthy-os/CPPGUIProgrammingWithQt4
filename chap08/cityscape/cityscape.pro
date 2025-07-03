@@ -1,5 +1,4 @@
 TEMPLATE      = app
-QT           += qml widgets  gui xml # QT += script grostig
 HEADERS       = annotation.h \
                 cityblock.h \
                 cityscape.h \
@@ -9,3 +8,4 @@ SOURCES       = annotation.cpp \
                 cityscape.cpp \
                 cityview.cpp \
                 main.cpp
+QT           += qml widgets  gui xml uitools

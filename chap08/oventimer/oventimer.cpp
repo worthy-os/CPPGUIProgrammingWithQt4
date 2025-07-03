@@ -119,7 +119,7 @@ void OvenTimer::draw(QPainter *painter)
     painter->rotate(duration() * DegreesPerSecond);
     painter->setBrush(knobGradient);
     painter->setPen(thinPen);
-    painter->drawRoundRect(-7, -25, 14, 50, 99, 49);
+    painter->drawRoundedRect(-7, -25, 14, 50, 99, 49); // grostig
 
     for (int i = 0; i <= MaxMinutes; ++i) {
         if (i % 5 == 0) {

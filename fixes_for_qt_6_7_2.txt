@@ -1,3 +1,4 @@
+QT           += qml core widgets gui xml uitools
 #include <QtWidgets/qdialog.h>      // grostig
 #include <QtWidgets/qboxlayout.h>   // grostig
 #include <QtWidgets/qpushbutton.h>  // grostig
@@ -5,11 +6,27 @@
 #include <QtWidgets/qspinbox.h>     // grostig
 #include <QtWidgets/qtablewidget.h> // grostig
 #include "QtWidgets/qwidget.h"      // grostig
-
-#include <QDialog>
 #include <QtWidgets/QApplication>
-#include <QtWidgets>                // grostig
 
-QMainWindow
+#include <QtCore>
+#include <QDialog>
+#include <QtGui>
+#include <QtNetwork>
+#include <QtQml>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
+#include <QSortFilterProxyModel>
+#include <QtWidgets>
 
-QT           += qml widgets  gui xml # QT += script grostig
+*** <QHBoxLayout> missing
+*** /Qt/6.9.1/gcc_64/include/QtGui -I/home/grostig/Qt/6.9.1/gcc_64/include/QtQml -I/home/grostig/Qt/6.9.1/gcc_64/include/QtQmlIntegration -I/home/grostig/Qt/6.9.1/gcc_64/include/QtNetwork -I/home/grostig/Qt/6.9.1/gcc_64/include/QtXml -I/home/grostig/Qt/6.9.1/gcc_64/include/QtCore -I. -I/home/grostig/Qt/6.9.1/gcc_64/mkspecs/linux-g++ -o preferencedialog.o ../../../../chap06/preferences/preferencedialog.cpp
+../../../../chap06/preferences/preferencedialog.cpp: In member function ‘void PreferenceDialog::createAppearancePage()’:
+../../../../chap06/preferences/preferencedialog.cpp:82:17: error: ‘class QVBoxLayout’ has no member named ‘setMargin’
+   82 |     pageLayout->setMargin(0);
+FIX:   pageLayout->setContentMargins(0,0,0,0);
+
+   ../../../../chap08/diagram/node.cpp: In member function ‘QRectF Node::outlineRect() const’:
+../../../../chap08/diagram/node.cpp:138:39: error: conversion from ‘QFont’ to non-scalar type ‘QFontMetricsF’ requested
+  138 |     QFontMetricsF metrics = qApp->font();
+
+  QFontMetricsF metrics{qApp->font()};

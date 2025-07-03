@@ -1,6 +1,10 @@
-#include <QtGui>
 #include <cmath>
-
+#include <QtCore>
+#include <QDialog>
+#include <QtGui>
+#include <QtNetwork>
+#include <QtQml>
+#include <QtWidgets>
 #include "plotter.h"
 #include "qstyleoption.h"
 #include "qstylepainter.h"
@@ -218,7 +222,7 @@ void Plotter::updateRubberBandRegion()
 void Plotter::refreshPixmap()
 {
     pixmap = QPixmap(size());
-    pixmap.fill(this, 0, 0);
+    pixmap.fill(); // pixmap.fill(this, 0, 0); grostig
 
     QPainter painter(&pixmap);
     painter.initFrom(this);
@@ -235,7 +239,7 @@ void Plotter::drawGrid(QPainter *painter)
         return;
 
     PlotSettings settings = zoomStack[curZoom];
-    QPen quiteDark = palette().dark().color().light();
+    QPen quiteDark = palette().dark().color().lighter(); // QPen quiteDark = palette().dark().color().light(); grostig
     QPen light = palette().light().color();
 
     for (int i = 0; i <= settings.numXTicks; ++i) {

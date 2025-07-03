@@ -16,3 +16,5 @@ SOURCES       = cell.cpp \
 FORMS         = gotocelldialog.ui \
                 sortdialog.ui
 RESOURCES     = spreadsheet.qrc
+QT           += qml widgets  gui xml xml
+CONFIG       += uitools

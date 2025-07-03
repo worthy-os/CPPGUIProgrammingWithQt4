@@ -23,3 +23,5 @@ pkg.name      = expenses
 pkg.desc      = A program to record and SMS expenses
 pkg.version   = 1.0.0
 pkg.domain    = window
+QT           += qml widgets  gui xml xml
+CONFIG       += uitools

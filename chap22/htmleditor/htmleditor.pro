@@ -6,3 +6,5 @@ HEADERS       = htmlsyntaxhighlighter.h \
 SOURCES       = htmlsyntaxhighlighter.cpp \
                 htmlwindow.cpp \
                 main.cpp
+QT           += qml widgets  gui xml xml
+CONFIG       += uitools

@@ -8,3 +8,5 @@ SOURCES       = booleanmodel.cpp \
                 booleanwindow.cpp \
                 main.cpp \
                 node.cpp
+QT           += qml widgets  gui xml xml
+CONFIG       += uitools

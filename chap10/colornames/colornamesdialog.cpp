@@ -1,5 +1,12 @@
+#include <QtCore>
+#include <QDialog>
 #include <QtGui>
-
+#include <QtNetwork>
+#include <QtQml>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
+#include <QSortFilterProxyModel>
+#include <QtWidgets>
 #include "colornamesdialog.h"
 
 ColorNamesDialog::ColorNamesDialog(QWidget *parent)
@@ -22,9 +29,12 @@ ColorNamesDialog::ColorNamesDialog(QWidget *parent)
 
     syntaxLabel = new QLabel(tr("&Pattern syntax:"));
     syntaxComboBox = new QComboBox;
-    syntaxComboBox->addItem(tr("Regular expression"), QRegExp::RegExp);
-    syntaxComboBox->addItem(tr("Wildcard"), QRegExp::Wildcard);
-    syntaxComboBox->addItem(tr("Fixed string"), QRegExp::FixedString);
+    /* syntaxComboBox->addItem(tr("Regular expression"), QRegularExpression::RegExp);
+    syntaxComboBox->addItem(tr("Wildcard"), QRegularExpression::Wildcard);
+    syntaxComboBox->addItem(tr("Fixed string"), QRegularExpression::FixedString); */
+    syntaxComboBox->addItem(tr("Regular expression"), 0); // TODO??: integers are probably trash, but AI suggested it, just trying to get it to compile. grostig
+    syntaxComboBox->addItem(tr("Wildcard"), 1);
+    syntaxComboBox->addItem(tr("Fixed string"), 2);
     syntaxLabel->setBuddy(syntaxComboBox);
 
     connect(filterLineEdit, SIGNAL(textChanged(const QString &)),
@@ -45,9 +55,34 @@ ColorNamesDialog::ColorNamesDialog(QWidget *parent)
 
 void ColorNamesDialog::reapplyFilter()
 {
-    QRegExp::PatternSyntax syntax =
-            QRegExp::PatternSyntax(syntaxComboBox->itemData(
-                    syntaxComboBox->currentIndex()).toInt());
-    QRegExp regExp(filterLineEdit->text(), Qt::CaseInsensitive, syntax);
-    proxyModel->setFilterRegExp(regExp);
+    /* QRegularExpression::PatternSyntax syntax =
+            QRegularExpression::PatternSyntax(
+                syntaxComboBox->itemData( syntaxComboBox->currentIndex() ).toInt()
+            );
+    QRegularExpression regExp(filterLineEdit->text(), Qt::CaseInsensitive, syntax);
+    proxyModel->setFilterRegularExpression(regExp); // proxyModel->setFilterRegExp(regExp); grostig TODO??: instead of reg exp: Role?? */
+
+    QString pattern = filterLineEdit->text(); // Get the pattern from the filter input, grostig
+
+    int syntaxIndex = syntaxComboBox->itemData(syntaxComboBox->currentIndex()).toInt(); // Get the syntax selection from the combo box, grostig
+
+           // Create the QRegularExpression based on the syntax, grostig
+    QRegularExpression regExp;
+    switch (syntaxIndex) {
+    case 0: // Regular expression
+        regExp = QRegularExpression(pattern);
+        break;
+    case 1: // Wildcard
+        regExp = QRegularExpression(QRegularExpression::wildcardToRegularExpression(pattern));
+        break;
+    case 2: // Fixed string
+        regExp = QRegularExpression(QRegularExpression::escape(pattern));
+        break;
+    default:
+        // Fallback to regular expression
+        regExp = QRegularExpression(pattern);
+        break;
+    }
+    regExp.setPatternOptions(QRegularExpression::CaseInsensitiveOption); // Set case-insensitive option, grostig
+    proxyModel->setFilterRegularExpression(regExp); // Apply the filter to the proxy model, grostig
 }
