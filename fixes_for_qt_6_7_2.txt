@@ -1,12 +1,6 @@
+QtQuickApplication template:
+
 QT           += qml core widgets gui xml uitools
-#include <QtWidgets/qdialog.h>      // grostig
-#include <QtWidgets/qboxlayout.h>   // grostig
-#include <QtWidgets/qpushbutton.h>  // grostig
-#include <QtWidgets/qslider.h>      // grostig
-#include <QtWidgets/qspinbox.h>     // grostig
-#include <QtWidgets/qtablewidget.h> // grostig
-#include "QtWidgets/qwidget.h"      // grostig
-#include <QtWidgets/QApplication>
 
 #include <QtCore>
 #include <QDialog>
@@ -18,6 +12,14 @@ QT           += qml core widgets gui xml uitools
 #include <QSortFilterProxyModel>
 #include <QtWidgets>
 
+#include <QtWidgets/qdialog.h>      // grostig
+#include <QtWidgets/qboxlayout.h>   // grostig
+#include <QtWidgets/qpushbutton.h>  // grostig
+#include <QtWidgets/qslider.h>      // grostig
+#include <QtWidgets/qspinbox.h>     // grostig
+#include <QtWidgets/qtablewidget.h> // grostig
+#include "QtWidgets/qwidget.h"      // grostig
+#include <QtWidgets/QApplication>
 *** <QHBoxLayout> missing
 *** /Qt/6.9.1/gcc_64/include/QtGui -I/home/grostig/Qt/6.9.1/gcc_64/include/QtQml -I/home/grostig/Qt/6.9.1/gcc_64/include/QtQmlIntegration -I/home/grostig/Qt/6.9.1/gcc_64/include/QtNetwork -I/home/grostig/Qt/6.9.1/gcc_64/include/QtXml -I/home/grostig/Qt/6.9.1/gcc_64/include/QtCore -I. -I/home/grostig/Qt/6.9.1/gcc_64/mkspecs/linux-g++ -o preferencedialog.o ../../../../chap06/preferences/preferencedialog.cpp
 ../../../../chap06/preferences/preferencedialog.cpp: In member function ‘void PreferenceDialog::createAppearancePage()’:
